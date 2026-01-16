@@ -1,0 +1,118 @@
+# AOEP-001 — Community Balancing with Dual-Stage Axie Score Voting Mechanism Proposal
+
+## Preamble
+
+- **AOEP Number:** AOEP-0001  
+- **Title:** Community Balancing with Dual-Stage Axie Score Voting Mechanism Proposal
+- **Description:** A lightweight governance and experimentation process allowing allowlisted contributors to submit Rune and Charm balance proposals in JSON format, select the top two proposals via Axie Score–weighted voting, trial both during the off-season, and finalize one for official season deployment through a second Axie Score vote.  
+- **Author:** Nova/Psylo @Volt3labs
+- **Status:** Draft  
+- **Type:** Governance / Game Balance Process  
+- **Created:** 2026-01-16  
+
+---
+
+## Abstract
+
+This proposal defines a low-resource, off-season balance governance loop for Axie Infinity in which selected contributors submit validated Rune and Charm JSON proposals. The community selects the top two proposals using Axie Score–weighted voting. Both proposals are deployed sequentially during the off-season as live trials. A second Axie Score–weighted vote selects the final winning proposal, which becomes the canonical balance configuration for the next official season.
+
+---
+
+## Rationale
+
+Balance decisions in competitive games often lack transparency, experimental rigor, and community legitimacy. This system formalizes balance iteration as a scientific process: hypothesis (proposal), validation, experiment (off-season trial), and conclusion (final vote).
+
+Full DAO-style governance and on-chain voting are considered but can be disregarded if too slow or too complex. Pure Sky Mavis balancing is not possible due to limited resources and insufficient time to properly research, test, and iterate on evolving metas (all resources focused on Atia's Legacy). The dual-stage voting model combines expert filtering with broad participation while ensuring that only empirically tested changes can reach the official season.
+
+The off-season is chosen as the experimentation window because instability is expected and risk is contained. JSON-based parameterization allows numerical tuning without client updates, minimizing engineering overhead and enabling rapid iteration.
+
+---
+
+## Specification
+
+### 1. Roles
+
+- **Allowlisted Proposers:** Submit balance proposals in canonical JSON format. Allowlisted Proposers can be Top players, Analyst, Streamers, anyone recognized for his deep knowledge of Axie Origins game mechanics.
+- **Voters:** Axie Score–eligible accounts participating in weighted voting.
+- **Operators:** Small internal team responsible for validation, deployment, and vote tallying.
+
+### 2. Proposal Format
+
+Each proposal includes:
+- `runes.json` (see runes.json example in the folder)
+- `charms.json` (I can also prepare it if you ask me)
+- `summary.md` (proposer explains goals, expected impact, risks, evaluation metrics)
+
+All numeric parameters are isolated in a `stats` object to allow tuning without modifying mechanics.
+
+### 3. Validation
+
+A single automated script performs:
+- JSON schema validation
+- Referential integrity checks
+- Change magnitude limits
+- Diff generation against the current canonical version
+
+Only validated proposals proceed to voting.
+
+(This is a draft proposal - I have generated a script but did not test it so I won't include here - I can test it and share it here on demand)
+
+### 4. Vote #1 — Top-2 Selection
+
+- Axie Score snapshot taken at vote start.
+- Formula can be:
+--Weight function: `min(cap, sqrt(AxieScore))`. Square root softens whale dominance - Instead of influence growing linearly (Score = 100 → weight 100), it grows slower: Score 100 → weight 10 & Score 10,000 → weight 100
+--Or we can axieScore*axsStaked like governance portal
+- Voting method: single-choice or ranked-choice.
+- Output: Two proposals with highest weighted totals.
+
+### 5. Off-Season Trial
+
+- Deployment via seasonal configuration switch. No client patch, we just change the JSON file that is called by the client and return by the server
+- Schedule:
+  - Week 1: Proposal A active.
+  - Week 2: Proposal B active.
+- Metrics collected from existing telemetry:
+  - Win rate
+  - Pick rate
+  - Meta diversity
+  - Exploit detection
+  - Player sentiment
+
+### 6. Vote #2 — Final Selection
+
+- Same electorate and weighting rules.
+- Options: Proposal A vs Proposal B.
+- Winner becomes the official season balance.
+
+### 7. Canonical Release
+
+Winning JSON is versioned and published as the next season’s canonical balance configuration and can be rolled back if critical issues are detected.
+
+
+## Reference Implementation
+
+A minimal implementation consists of:
+
+1. JSON Schema + validation script  
+2. Axie Score snapshot (existing already)
+3. Vote tally script with weight function  (can be hosted on Governance portal or on my website)
+4. Seasonal config switch for JSON versions  (upload new JSON script)
+
+All components are off-chain and can be implemented within one week by a small team or a single dev.
+
+---
+
+## Security Analysis
+
+Primary risks include:
+
+- **Vote manipulation:** Mitigated through Axie Score snapshotting, weight caps, and eligibility thresholds.
+- **Malicious proposals:** Prevented via schema validation, diff review, and change limits.
+- **Deployment errors:** Reduced through versioned artifacts and fast rollback.
+
+---
+
+## Economic Analysis
+
+This system improves balance legitimacy and player trust at minimal operational cost. By enabling controlled experimentation and community participation, it can increase long-term retention and competitive integrity while avoiding the overhead of full on-chain governance or complex live-ops tooling. Regular, transparent meta shifts driven by this process can also stimulate economic activity by renewing demand for Axies as players adapt to evolving competitive environments.

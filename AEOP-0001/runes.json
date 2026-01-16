@@ -1,0 +1,793 @@
+{
+
+      "runes": [
+        {
+          "name": "Pure Power Lv.1",
+          "description": "Other allied Axie's Attacks gain +{attack_bonus_percent}% <Value>.",
+          "stats": {
+            "attack_bonus_percent": 8
+          }
+        },
+        {
+          "name": "Pure Skill Lv.1",
+          "description": "Other allied Axie's Heals & Shields gain +{heal_shield_bonus_percent}% <Value>.",
+          "stats": {
+            "heal_shield_bonus_percent": 8
+          }
+        },
+        {
+          "name": "Philosopher’s Stone Lv.1",
+          "description": "When the battle starts, this Axie's Cards gain +{base_stat_bonus_percent}% Stats, bonus +{burst_bonus_percent}% for each of your <Burst> levels.",
+          "stats": {
+            "base_stat_bonus_percent": 10,
+            "burst_bonus_percent": 5
+          }
+        },
+        {
+          "name": "Pure Luck Lv.1",
+          "description": "{Solo}. When your turn starts, if Hand and Draw Pile have > {cursed_threshold} Cursed Card, draw {draw_amount} Card; otherwise, allied Axie's Cards gain +{value_bonus_percent}% <Value> until your turn ends.",
+          "stats": {
+            "cursed_threshold": 1,
+            "draw_amount": 1,
+            "value_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Energy Shard Lv.1",
+          "description": "{Solo}. When the battle starts, gain {fragment_per_class} <Fragment> per unique Axie Class in your team. Creating a <Burst> heals allied Axies for {burst_heal_hp} HP.",
+          "stats": {
+            "fragment_per_class": 1,
+            "burst_heal_hp": 30
+          }
+        },
+        {
+          "name": "Last Wish Lv.1",
+          "description": "{Solo}. Max HP +{max_hp_flat}. On death, Shield other allies and deal DMG to enemies for {death_damage_percent}% of Max HP.",
+          "stats": {
+            "max_hp_flat": 35,
+            "death_damage_percent": 8
+          }
+        },
+        {
+          "name": "Pure Instinct Lv.1",
+          "description": "{Solo}. Other allied Axie's Cards gain +{base_stat_bonus_percent}% Stat. +{per_class_bonus_percent}% more per unique Axie Class in your team. On death, Cards in your Deck lose {death_stat_loss_percent}% Stat.",
+          "stats": {
+            "base_stat_bonus_percent": 5,
+            "per_class_bonus_percent": 5,
+            "death_stat_loss_percent": 10
+          }
+        },
+        {
+          "name": "Shady Exchange Lv.1",
+          "description": "{Solo}. Until <Round> {round_threshold}, when your turn ends, lose {fragment_loss} <Fragment>s. After that, when your turn starts, gain {fragment_gain} <Fragment>s. Whenever you gain a <Fragment>, heal allies for {heal_hp} HP and deal {damage_hp} DMG to all enemies.",
+          "stats": {
+            "round_threshold": 2,
+            "fragment_loss": 3,
+            "fragment_gain": 2,
+            "heal_hp": 3,
+            "damage_hp": 3
+          }
+        },
+        {
+          "name": "Vengeful Soul Lv.1",
+          "description": "{Solo} Max HP +{max_hp_percent}%. On death, gain {vengeance_percent}% of max HP as {Vengeance} and Cards in your Deck gain +{deck_stat_bonus_percent}% Stats.",
+          "stats": {
+            "max_hp_percent": 12,
+            "vengeance_percent": 15,
+            "deck_stat_bonus_percent": 20
+          }
+        },
+        {
+          "name": "Way of Beast Lv.1",
+          "description": "When the battle starts, +{rage_on_start} {Rage}. Attacks deal +{attack_damage_bonus_percent}% DMG.",
+          "stats": {
+            "rage_on_start": 2,
+            "attack_damage_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Dominant Predator Lv.1",
+          "description": "On targets with {Bleed}, Attacks deal +{bleed_damage_bonus_percent}% DMG then heal {bleed_heal_hp} HP. On targets without {Bleed}, Attacks apply {bleed_apply} {Bleed}, bonus {single_attack_bonus_bleed} {Bleed} on Single Attacks.",
+          "stats": {
+            "bleed_damage_bonus_percent": 10,
+            "bleed_heal_hp": 12,
+            "bleed_apply": 1,
+            "single_attack_bonus_bleed": 2
+          }
+        },
+        {
+          "name": "Glorious Mane Lv.1",
+          "description": "Attacks cannot grant <Fragment>. Whenever this Axie attacks, its Attack Cards gain {atk_per_energy_percent}% Base ATK per Energy Spent (cap: {attack_cap} attacks).",
+          "stats": {
+            "atk_per_energy_percent": 7,
+            "attack_cap": 5
+          }
+        },
+        {
+          "name": "Reckless Hunter Lv.1",
+          "description": "{Solo}. Attacks deal +{attack_damage_bonus_percent}% DMG. Per hit, attacks apply {target_bleed} {Bleed} to targets and {self_bleed} {Bleed} to self.",
+          "stats": {
+            "attack_damage_bonus_percent": 15,
+            "target_bleed": 3,
+            "self_bleed": 1
+          }
+        },
+        {
+          "name": "Pangolin Scale Lv.1",
+          "description": "{Solo}. Take -{unblocked_damage_reduction_percent}% unblocked DMG from Attacks.",
+          "stats": {
+            "unblocked_damage_reduction_percent": 20
+          }
+        },
+        {
+          "name": "Inspirational Hero Lv.1",
+          "description": "{Solo}. When your turn starts, on Even Rounds, apply {rage_on_even_round} {Rage} to allied Axies. This Axie gain +{card_stat_bonus_percent}% Card Stat when any allies gain {Fury}.",
+          "stats": {
+            "rage_on_even_round": 1,
+            "card_stat_bonus_percent": 5
+          }
+        },
+        {
+          "name": "Endless Anger Lv.1",
+          "description": "{Solo}. When your turn starts, +{rage_on_turn_start} {Rage}. {Rage} on this Axie now grants +{rage_damage_per_stack} DMG per stack. Deal +{fury_damage_bonus_percent}% DMG in Fury Form.",
+          "stats": {
+            "rage_on_turn_start": 2,
+            "rage_damage_per_stack": 2,
+            "fury_damage_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Brutal Claw Lv.1",
+          "description": "{Solo}. On targets with Bleed, Single and <AoE> Attacks create <Bloodstorm> then double the {Bleed} stacks on targets with < {bleed_stack_cap} {Bleed}.",
+          "stats": {
+            "bleed_stack_cap": 6
+          }
+        },
+        {
+          "name": "Counter Stance Lv.1",
+          "description": "{Solo}. <Counter Attack>. Deal +{atk_per_card_percent}% ATK per this Axie's Attack Card in your Deck (cap at {atk_bonus_cap_percent}%).",
+          "stats": {
+            "atk_per_card_percent": 7,
+            "atk_bonus_cap_percent": 28
+          }
+        },
+        {
+          "name": "Way of Bug Lv.1",
+          "description": "When the battle starts, +{cocoon_on_start} {Cocoon}. Gain +{shield_bonus_percent}% Shield from all sources.",
+          "stats": {
+            "cocoon_on_start": 3,
+            "shield_bonus_percent": 15
+          }
+        },
+        {
+          "name": "Vault Builder Lv.1",
+          "description": "When your turn starts, gain {shield_per_draw_card} Shield per Card in Draw Pile. When your turn ends, gain {shield_per_discard_card} Shield per Card in Discard Pile.",
+          "stats": {
+            "shield_per_draw_card": 1,
+            "shield_per_discard_card": 3
+          }
+        },
+        {
+          "name": "Blood Beetle Lv.1",
+          "description": "Once per turn, this Axie's first Attack deals <Pure DMG>.This Axie's Pure DMG Attacks deal +{pure_damage_bonus_percent}% DMG and on targets without {Alert}, <Steal> {steal_hp} HP, bonus {single_attack_bonus_steal} HP for single attack.",
+          "stats": {
+            "pure_damage_bonus_percent": 10,
+            "steal_hp": 5,
+            "single_attack_bonus_steal": 5
+          }
+        },
+        {
+          "name": "Leech Lv.1",
+          "description": "{Solo}. When your turn starts, <Steal> ({steal_min} to {steal_max}) HP from the closest enemy Axie and +{cocoon_on_steal} {Cocoon}. If you <Steal> ≥ {steal_threshold} HP, +{bonus_cocoon} {Cocoon} to other allies.",
+          "stats": {
+            "steal_min": 10,
+            "steal_max": 20,
+            "cocoon_on_steal": 1,
+            "steal_threshold": 15,
+            "bonus_cocoon": 1
+          }
+        },
+        {
+          "name": "Sturdy Fighter Lv.1",
+          "description": "{Solo}. Single Attacks that cost energy consume {shield_consume_percent}% of current Shield and deal {damage_multiplier}x that amount as bonus DMG.",
+          "stats": {
+            "shield_consume_percent": 20,
+            "damage_multiplier": 3
+          }
+        },
+        {
+          "name": "Fate Maker Lv.1",
+          "description": "{Solo}. This Axie's first Attack in each turn discards {cards_per_energy} random Card per Energy Cost from Enemy Hand or Draw Pile, prioritize Enemy Hand. Enemy Cards discarded by allies deal ({base_damage}+{stat_damage_percent}% Base Stat) as DMG to the owner (Cap: {damage_cap} DMG)",
+          "stats": {
+            "cards_per_energy": 1,
+            "base_damage": 10,
+            "stat_damage_percent": 40,
+            "damage_cap": 25
+          }
+        },
+        {
+          "name": "Collect & Protect Lv.1",
+          "description": "{Solo}. When your turn starts, on Odd <Round>, +{odd_round_cocoon} {Cocoon} to all allies and draw {odd_round_draw} Card; on Even <Round>, gain {even_round_shield} Shield.",
+          "stats": {
+            "odd_round_cocoon": 1,
+            "odd_round_draw": 1,
+            "even_round_shield": 40
+          }
+        },
+        {
+          "name": "Metamorphosis Lv.1",
+          "description": "{Solo}. When your turn starts, +{cocoon_on_start} {Cocoon} and deal DMG equal to {damage_percent_per_cocoon}% of current Shield per {Cocoon} to enemy Axies. Receive +{shield_bonus_percent_per_cocoon}% Shield per {Cocoon}",
+          "stats": {
+            "cocoon_on_start": 2,
+            "damage_percent_per_cocoon": 6,
+            "shield_bonus_percent_per_cocoon": 2
+          }
+        },
+        {
+          "name": "Greedy Leech Lv.1",
+          "description": "{Solo}. Before attacking or stealing by this Rune's effect, this Axie removes {Alert} on the target. When allied Axies steal with a Card from targets without {Alert}, <Steal> ({steal_percent}% of the Card's Stat) as HP, bonus {self_bonus_percent}% for this Axie.",
+          "stats": {
+            "steal_percent": 10,
+            "self_bonus_percent": 30
+          }
+        },
+        {
+          "name": "Way of Bird Lv.1",
+          "description": "When the battle starts, +{feather_on_start} {Feather} to allied Axies. Attacks deal +{attack_damage_bonus_percent}% DMG.",
+          "stats": {
+            "feather_on_start": 1,
+            "attack_damage_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Frail Egg Lv.1",
+          "description": "When your turn starts, apply {weak_apply} {Weak} to an enemy Axie without {Weak}.\nOn {Weak}en Enemies, Attacks deal {pure_damage_per_card} <Pure DMG> per Attack Card of the target (cap: {pure_damage_cap} DMG), bonus {single_attack_bonus_damage} <Pure DMG> on Single Attacks (cap: {single_attack_cap} DMG).",
+          "stats": {
+            "weak_apply": 3,
+            "pure_damage_per_card": 2,
+            "pure_damage_cap": 6,
+            "single_attack_bonus_damage": 3,
+            "single_attack_cap": 15
+          }
+        },
+        {
+          "name": "Gates of Unity Lv.1",
+          "description": "Attacks deal +{damage_per_summon} DMG per Summon. Bonus +{single_attack_bonus_damage} DMG on Single Attacks. This Axie's Summons gain +{summon_hp_bonus} HP.",
+          "stats": {
+            "damage_per_summon": 5,
+            "single_attack_bonus_damage": 7,
+            "summon_hp_bonus": 8
+          }
+        },
+        {
+          "name": "Energy Guru Lv.1",
+          "description": "{Solo}. When your turn starts, gain {fragment_on_start} <Fragment>. Attacks deal {damage_per_energy} DMG per Energy Spent to enemy Axies.",
+          "stats": {
+            "fragment_on_start": 1,
+            "damage_per_energy": 7
+          }
+        },
+        {
+          "name": "Raven's Tactic Lv.1",
+          "description": "{Solo}. When your turn starts, on Odd Rounds, +{feather_on_odd} {Feather} to allied Axies. When gaining {Plume} from other effects, +{bonus_plume} {Plume}. Attacks deal +{attack_damage_bonus_percent}% DMG.",
+          "stats": {
+            "feather_on_odd": 1,
+            "bonus_plume": 1,
+            "attack_damage_bonus_percent": 15
+          }
+        },
+        {
+          "name": "Sacred Feather Lv.1",
+          "description": "{Solo}. Once per battle, if this Axie would die, it survives with {survive_hp} HP, then Heals {heal_percent_per_feather}% of Max HP per {Feather}. Deal {death_damage} DMG to enemies.",
+          "stats": {
+            "survive_hp": 1,
+            "heal_percent_per_feather": 5,
+            "death_damage": 20
+          }
+        },
+        {
+          "name": "Feather Descend Lv.1",
+          "description": "{Solo}. When your turn starts, +{feather_on_start} {Feather}. Once per turn, at {feather_threshold} stacks, consume {feather_consume} {Feather}, +{dagger_draw} [Feather Dagger] to Hand. [Feather Dagger]s deal +{dagger_damage} DMG.",
+          "stats": {
+            "feather_on_start": 2,
+            "feather_threshold": 10,
+            "feather_consume": 4,
+            "dagger_draw": 2,
+            "dagger_damage": 10
+          }
+        },
+        {
+          "name": "Sharp Talon Lv.1",
+          "description": "{Solo}. When your turn starts, consume all {Feather} to heal allies for {heal_per_feather} HP per {Feather}. Deal +{base_damage_bonus_percent}% DMG. +{per_hit_bonus_percent}% DMG per hit this Axie deals until end of turn. (Cap: {hit_cap} hits)",
+          "stats": {
+            "heal_per_feather": 2,
+            "base_damage_bonus_percent": 25,
+            "per_hit_bonus_percent": 15,
+            "hit_cap": 2
+          }
+        },
+        {
+          "name": "Flock Might Lv.1",
+          "description": "{Solo}. When your turn starts, on Odd <Round>, randomly summon {robin_count} <Little Robin> ({robin_atk} ATK) or {mavis_count} <Mavis> ({mavis_atk} ATK). Summons deal +{damage_bonus_percent}% DMG per allied Summon and gain +{summon_hp_bonus} HP.",
+          "stats": {
+            "robin_count": 1,
+            "robin_atk": 15,
+            "mavis_count": 1,
+            "mavis_atk": 40,
+            "damage_bonus_percent": 10,
+            "summon_hp_bonus": 8
+          }
+        },
+        {
+          "name": "Way of Plant Lv.1",
+          "description": "When the battle starts, +{leaf_on_start} {Leaf}. Take -{damage_reduction_percent}% DMG from Attacks, bonus -{bonus_reduction_percent}% if this Axie has {Leaf}.",
+          "stats": {
+            "leaf_on_start": 2,
+            "damage_reduction_percent": 10,
+            "bonus_reduction_percent": 5
+          }
+        },
+        {
+          "name": "Destiny Leaf Lv.1",
+          "description": "Max HP +{max_hp_percent}%. When this Axie's Summons die, deal ({damage_percent}% of this Axie's Current HP) as DMG to the closest enemy Axie.",
+          "stats": {
+            "max_hp_percent": 8,
+            "damage_percent": 8
+          }
+        },
+        {
+          "name": "Forest Aroma Lv.1",
+          "description": "Until <Round> {round_limit}, once per turn, when this Axie is attacked, apply {sleep_apply} {Sleep} to the attacker. When each turn ends, {Sleep}ing Enemies lose {sleep_damage} HP.",
+          "stats": {
+            "round_limit": 3,
+            "sleep_apply": 2,
+            "sleep_damage": 10
+          }
+        },
+        {
+          "name": "Rise & Ruin Lv.1",
+          "description": "{Solo}. When your turn starts on Odd Rounds, add {forest_breath} [Forest Breath] to your Hand. Once per turn, when an ally is <Cleanse>, add {forest_wrath} [Forest Wrath] to Hand.",
+          "stats": {
+            "forest_breath": 1,
+            "forest_wrath": 1
+          }
+        },
+        {
+          "name": "Leaf Cloak Lv.1",
+          "description": "{Solo}. Whenever hit, if this Axie has {Leaf}, take -{damage_reduction_percent}% DMG, -{leaf_loss} {Leaf}, then +{ally_leaf_gain} {Leaf} to other allies; otherwise, +{self_leaf_gain} {Leaf}.",
+          "stats": {
+            "damage_reduction_percent": 20,
+            "leaf_loss": 1,
+            "ally_leaf_gain": 1,
+            "self_leaf_gain": 2
+          }
+        },
+        {
+          "name": "Miracle Leaf Lv.1",
+          "description": "{Solo}. When your turn starts, +{leaf_on_start} {Leaf}. Attacks deal +{flat_damage_per_leaf} DMG per {Leaf}. Attacks deal +{percent_damage_per_leaf}% DMG per {Leaf} (cap at {percent_damage_cap}%).",
+          "stats": {
+            "leaf_on_start": 1,
+            "flat_damage_per_leaf": 1,
+            "percent_damage_per_leaf": 5,
+            "percent_damage_cap": 25
+          }
+        },
+        {
+          "name": "Gaia's Embrace Lv.1",
+          "description": "{Solo}. Allied Axies Max HP +{ally_max_hp_flat}. When your turn starts, +{leaf_on_start} {Leaf} to all allies and heal allied Axies for {heal_percent_of_max_hp}% of this Axie's Max HP.",
+          "stats": {
+            "ally_max_hp_flat": 40,
+            "leaf_on_start": 1,
+            "heal_percent_of_max_hp": 2
+          }
+        },
+        {
+          "name": "Healing Pulse Lv.1",
+          "description": "{Solo}. This Axie's Heals also Heal / <Reverse Heal> the target's other allies for {splash_heal_percent}% <Value>. Overheal from this Axie's Cards is granted as Shield to its target and dealt as DMG to the highest HP Enemy.",
+          "stats": {
+            "splash_heal_percent": 25
+          }
+        },
+        {
+          "name": "Jungle Nightmare Lv.1",
+          "description": "{Solo}. When attacked, take -{damage_reduction_percent}% DMG and (once per turn) apply {sleep_apply} {Sleep} to the attacker. On enemies with {Sleep}, Single Attacks and Reverse Heals consume all {Sleep} then <Steal> {steal_per_sleep} HP per {Sleep} consumed and apply {sleep_reapply} {Sleep}.",
+          "stats": {
+            "damage_reduction_percent": 20,
+            "sleep_apply": 2,
+            "steal_per_sleep": 5,
+            "sleep_reapply": 2
+          }
+        },
+        {
+          "name": "Way of Aquatic Lv.1",
+          "description": "When the battle starts, gain {bubble_on_start} {Bubble}. Attacks deal +{bubble_damage_bonus_percent}% bonus DMG from Bubble. Bonus +{multihit_bonus_percent}% on Multihit & AoE Attacks.",
+          "stats": {
+            "bubble_on_start": 2,
+            "bubble_damage_bonus_percent": 50,
+            "multihit_bonus_percent": 50
+          }
+        },
+        {
+          "name": "Blunt Teeth Lv.1",
+          "description": "Attacks grant {fragment_percent_of_damage}% of Total DMG as <Fragment> (Cap: {fragment_cap} Fragments). If this Axie doesn't have {Weak}, apply {self_weak} {Weak} to self.",
+          "stats": {
+            "fragment_percent_of_damage": 2,
+            "fragment_cap": 3,
+            "self_weak": 2
+          }
+        },
+        {
+          "name": "Giant Bubble Lv.1",
+          "description": "Before the battle starts, add {giant_bubble_cards} [Giant Bubble] to your Deck",
+          "stats": {
+            "giant_bubble_cards": 1
+          }
+        },
+        {
+          "name": "Hearty Warrior Lv.1",
+          "description": "{Solo}. When your turn starts, +{bubble_on_turn_start} {Bubble}. On targets with HP ≥ {high_hp_threshold}%, Attacks deal +{high_hp_damage_bonus}% DMG; otherwise deal +{low_hp_damage_bonus}% DMG.",
+          "stats": {
+            "bubble_on_turn_start": 1,
+            "high_hp_threshold": 70,
+            "high_hp_damage_bonus": 25,
+            "low_hp_damage_bonus": 15
+          }
+        },
+        {
+          "name": "Calcium Armor Lv.1",
+          "description": "{Solo}. Before the battle starts and when your turn starts from Round {round_start}, gain {shield_percent_of_max_hp}% of Max HP as Shield. When shield is broken, +{fragment_on_break} <Fragment>.",
+          "stats": {
+            "round_start": 2,
+            "shield_percent_of_max_hp": 8,
+            "fragment_on_break": 1
+          }
+        },
+        {
+          "name": "Puffer’s Plight Lv.1",
+          "description": "{Solo}. Whenever the Enemy draws a Cursed Card, they receive {bad_luck_on_draw} {Bad Luck}. When each turn ends, if your Enemy has {Bad Luck}, enemy Axies take {pure_damage_on_end} <Pure DMG>.",
+          "stats": {
+            "bad_luck_on_draw": 1,
+            "pure_damage_on_end": 13
+          }
+        },
+        {
+          "name": "Heart of Ocean Lv.1",
+          "description": "{Solo}. When your turn starts, +{bubble_on_start} {Bubble}. This Axie's {Bubble Bomb} deal ({bubble_bomb_percent}% of the target's Max HP) as <Pure DMG>.",
+          "stats": {
+            "bubble_on_start": 2,
+            "bubble_bomb_percent": 1.5
+          }
+        },
+        {
+          "name": "Bloodlust Lv.1",
+          "description": "{Solo}. Attacks deal +{damage_per_cunning_percent}% DMG per {Cunning} and <Steal> ({steal_percent_of_unblocked}% of unblocked DMG) as HP.",
+          "stats": {
+            "damage_per_cunning_percent": 3,
+            "steal_percent_of_unblocked": 15
+          }
+        },
+        {
+          "name": "Bombshell Maker Lv.1",
+          "description": "{Solo}. When your turn starts, all allied Axies gain {bombshell_on_start} {Bombshell}. When any allied Axie dies, grant {transfer_percent}% of its {Bombshell} stacks to allied Axies.",
+          "stats": {
+            "bombshell_on_start": 2,
+            "transfer_percent": 35
+          }
+        },
+        {
+          "name": "Way of Reptile Lv.1",
+          "description": "When the battle starts, +{spike_on_start} {Spike}. When your turn ends, heal {end_turn_heal_percent}% Max HP.",
+          "stats": {
+            "spike_on_start": 2,
+            "end_turn_heal_percent": 5
+          }
+        },
+        {
+          "name": "Poison Touch Lv.1",
+          "description": "Whenever hit, apply {poison_on_hit} {Poison} to the attacker. Take -{damage_reduction_per_poison}% DMG per {Poison} on the attacker. (Cap: -{damage_reduction_cap}% DMG).",
+          "stats": {
+            "poison_on_hit": 1,
+            "damage_reduction_per_poison": 1.5,
+            "damage_reduction_cap": 15
+          }
+        },
+        {
+          "name": "Shellshock Lv.1",
+          "description": "When allied Secrets are triggered, deal {pure_damage_on_trigger} <Pure DMG> to enemy Axies then Heal {heal_on_trigger} HP.",
+          "stats": {
+            "pure_damage_on_trigger": 8,
+            "heal_on_trigger": 5
+          }
+        },
+        {
+          "name": "Venom Master Lv.1",
+          "description": "{Solo}. Before the battle starts, add {venom_burst_cards} [Venom Burst] to your Deck. When your turn starts, apply {poison_per_tick} {Poison} to a random Enemy {repeat_times} times.",
+          "stats": {
+            "venom_burst_cards": 1,
+            "poison_per_tick": 2,
+            "repeat_times": 2
+          }
+        },
+        {
+          "name": "Desert Protector Lv.1",
+          "description": "{Solo}. When enemy turn starts, on Odd <Round>, gain {guard_on_odd} {Guard} and {shield_on_odd} Shield. When {Guard} triggers, deal {damage_per_shield} DMG to the closest Enemy Axie per {shield_unit} Shield lost.",
+          "stats": {
+            "guard_on_odd": 1,
+            "shield_on_odd": 30,
+            "damage_per_shield": 1,
+            "shield_unit": 2
+          }
+        },
+        {
+          "name": "Prehistoric Armor Lv.1",
+          "description": "{Solo}. When your turn starts, +{spike_on_start} {Spike}. {Spike} on this Axie grant +{bloodspike_min} to {bloodspike_max} {Bloodspike}. Whenever hit, heal {heal_on_hit} HP.",
+          "stats": {
+            "spike_on_start": 2,
+            "bloodspike_min": 1,
+            "bloodspike_max": 2,
+            "heal_on_hit": 12
+          }
+        },
+        {
+          "name": "Regenerator Lv.1",
+          "description": "{Solo}. When your turn starts, heal {heal_percent_of_max_hp}% of Max HP and <Cleanse>: {cleanse_count}. Overheal on this Axie is converted to Shield for the lowest HP allied Axie.",
+          "stats": {
+            "heal_percent_of_max_hp": 10,
+            "cleanse_count": 4
+          }
+        },
+        {
+          "name": "Paralyzing Glare Lv.1",
+          "description": "{Solo}. Debuff Cards apply {doubt_apply} {Doubt} then deal <Pure DMG> equal to ({base_damage} + total number of debuffs on the target) to enemy Axies. (Cap: {damage_cap} DMG)",
+          "stats": {
+            "doubt_apply": 2,
+            "base_damage": 1,
+            "damage_cap": 20
+          }
+        },
+        {
+          "name": "Spike Spray Lv.1",
+          "description": "{Solo}. When your turn starts, +{spike_on_start} {Spike}. Before hit, gain ({shield_per_stack} Shield per {Spike} and {Bloodspike}) up to {shield_cap} Shield then consume {bloodspike_consume_percent}% of {Bloodspike} to deal {damage_per_bloodspike} Pure DMG per {Bloodspike} consumed to all enemies.",
+          "stats": {
+            "spike_on_start": 3,
+            "shield_per_stack": 1,
+            "shield_cap": 20,
+            "bloodspike_consume_percent": 25,
+            "damage_per_bloodspike": 2
+          }
+        },
+        {
+          "name": "Trap Nullifier Lv.1",
+          "description": "Before the battle starts, +{scan_cards} [Scan] to your Deck. This Axie's Cards gain +{value_bonus_percent}% <Value>.",
+          "stats": {
+            "scan_cards": 1,
+            "value_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Steelskin Lv.1",
+          "description": "Take -{flat_damage_reduction} DMG from Attacks.",
+          "stats": {
+            "flat_damage_reduction": 10
+          }
+        },
+        {
+          "name": "Zap Armor Lv.1",
+          "description": "Reflect {reflect_percent}% DMG taken to Attackers. While Shielded, take -{shielded_damage_reduction_percent}% DMG from Attacks.",
+          "stats": {
+            "reflect_percent": 15,
+            "shielded_damage_reduction_percent": 15
+          }
+        },
+        {
+          "name": "Solid Bulwark Lv.1",
+          "description": "{Solo}. Before the battle starts, +{bulwark_on_start} {Bulwark}. When your turn ends, {shield_convert_percent}% of DMG from this Axie's Attacks this turn is granted as Shield to self (Cap: {shield_cap} Shield).",
+          "stats": {
+            "bulwark_on_start": 2,
+            "shield_convert_percent": 50,
+            "shield_cap": 120
+          }
+        },
+        {
+          "name": "Adaptive Program Lv.1",
+          "description": "{Solo}. Receive +{shield_bonus_percent}% Shield from Cards. For every {shield_threshold} Shield cumulatively received from Cards, gain {fragment_gain} <Fragment>.",
+          "stats": {
+            "shield_bonus_percent": 10,
+            "shield_threshold": 80,
+            "fragment_gain": 1
+          }
+        },
+        {
+          "name": "Lens of Truth Lv.1",
+          "description": "{Solo}. Attacks remove up to {secret_remove} Secret from their targets. On targets without Secrets, deal +{damage_bonus_percent}% DMG.",
+          "stats": {
+            "secret_remove": 1,
+            "damage_bonus_percent": 20
+          }
+        },
+        {
+          "name": "Shield Backup Lv.1",
+          "description": "{Solo}. Gain {shield_gain_percent}% Shield from all sources. Take -{damage_reduction_percent}% DMG from Attacks, bonus -{shielded_bonus_reduction_percent}% while Shielded. Retain {shield_retain_percent}% of leftover Shield.",
+          "stats": {
+            "shield_gain_percent": 20,
+            "damage_reduction_percent": 15,
+            "shielded_bonus_reduction_percent": 10,
+            "shield_retain_percent": 50
+          }
+        },
+        {
+          "name": "Last Stand Lv.1",
+          "description": "{Solo}. Once per battle, if this Axie would die, gain <Immortal> for {immortal_turns} turns, lose any {Taunt}, & +{value_bonus_percent}% <Value> while <Immortal>.",
+          "stats": {
+            "immortal_turns": 2,
+            "value_bonus_percent": 20
+          }
+        },
+        {
+          "name": "Rocket Barrage Lv.1",
+          "description": "{Solo}. Every {hits_per_rocket} hits from Allied Axies, fire a {Rocket} at the lowest HP Enemy Axie. Every {rockets_per_big} {Rocket}s fired, fire a {Big Rocket} at the enemy team.",
+          "stats": {
+            "hits_per_rocket": 3,
+            "rockets_per_big": 3
+          }
+        },
+        {
+          "name": "Divine Ring Lv.1",
+          "description": "Before the battle starts, +{prayer_cards} [Prayer] to your Deck. This Axie's Cards gain +{value_bonus_percent}% <Value>.",
+          "stats": {
+            "prayer_cards": 1,
+            "value_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Arcane Protection Lv.1",
+          "description": "Take -{base_reduction_percent}% DMG from all sources. Bonus -{bonus_reduction_per_buff}% per Buff or Secret on this Axie. (Cap: bonus -{bonus_cap_percent}% DMG)",
+          "stats": {
+            "base_reduction_percent": 5,
+            "bonus_reduction_per_buff": 5,
+            "bonus_cap_percent": 10
+          }
+        },
+        {
+          "name": "Tiny Guardian Lv.1",
+          "description": "This Axie's Summons gain {summon_shield} Shield when summoned and {guard_next_turn} {Guard} next turn.",
+          "stats": {
+            "summon_shield": 10,
+            "guard_next_turn": 1
+          }
+        },
+        {
+          "name": "Rejuvenate Lv.1",
+          "description": "{Solo}. This Axie's Heals and Shields gain +{stat_bonus_percent}% Stats and apply {cleanser_apply} {Cleanser}. Apply {single_target_bonus_cleanser} bonus {Cleanser} on Single Targets.",
+          "stats": {
+            "stat_bonus_percent": 15,
+            "cleanser_apply": 2,
+            "single_target_bonus_cleanser": 2
+          }
+        },
+        {
+          "name": "Heaven's Echoes Lv.1",
+          "description": "{Solo}. After attacking, until your turn ends, other allied Axies' Attacks deal +{ally_damage_bonus_percent}% DMG. Once per turn, after playing a Skill or Secret, other allies gain {shield_on_skill} Shield.",
+          "stats": {
+            "ally_damage_bonus_percent": 20,
+            "shield_on_skill": 20
+          }
+        },
+        {
+          "name": "Healing Force Lv.1",
+          "description": "{Solo}. Allied summons take -{summon_damage_reduction_percent}% DMG from all Sources. When your turn starts, for each living ally, heal allies for {heal_per_ally} HP and deal {damage_per_ally} DMG to enemies.",
+          "stats": {
+            "summon_damage_reduction_percent": 20,
+            "heal_per_ally": 2,
+            "damage_per_ally": 4
+          }
+        },
+        {
+          "name": "Holy Prayer Lv.1",
+          "description": "{Solo}. When your turn starts, <Purify>: {purify_count}. Allied Axie's Cards gain +{value_bonus_percent}% <Value>; +{bonus_with_curse_percent}% more while there are Cursed Cards in your Deck.",
+          "stats": {
+            "purify_count": 1,
+            "value_bonus_percent": 10,
+            "bonus_with_curse_percent": 5
+          }
+        },
+        {
+          "name": "Celestial Might Lv.1",
+          "description": "{Solo}. This Axie's Cards gain +{value_bonus_percent}% <Value> and +{fragment_per_energy} <Fragment> per Energy spent when played. They are <Banish>ed after being played {banish_after_plays} times.",
+          "stats": {
+            "value_bonus_percent": 30,
+            "fragment_per_energy": 1,
+            "banish_after_plays": 2
+          }
+        },
+        {
+          "name": "Guardian Angel Lv.1",
+          "description": "{Solo}. Max HP +{max_hp_percent}%. Take -{damage_reduction_percent}% DMG from all sources. {redirect_percent}% of DMG taken by other allied Axies is taken by this Axie instead.",
+          "stats": {
+            "max_hp_percent": 12,
+            "damage_reduction_percent": 15,
+            "redirect_percent": 25
+          }
+        },
+        {
+          "name": "Dark Flame Lv.1",
+          "description": "Before the battle starts, +{purge_cards} [Purge] to your Deck. This Axie's Cards gain +{value_bonus_percent}% <Value>.",
+          "stats": {
+            "purge_cards": 1,
+            "value_bonus_percent": 10
+          }
+        },
+        {
+          "name": "Cursed Ritual Lv.1",
+          "description": "When your turn ends, per Cursed Card in the Enemy Deck, heal {heal_per_curse} HP and the closest enemy Axie loses {damage_per_curse} HP. (Cap: {curse_cap} Curse Cards)",
+          "stats": {
+            "heal_per_curse": 3,
+            "damage_per_curse": 5,
+            "curse_cap": 5
+          }
+        },
+        {
+          "name": "Malediction Lv.1",
+          "description": "On targets with Debuffs, Attacks deal +{damage_bonus_percent}% DMG. From attackers with Debuffs, take -{damage_reduction_percent}% DMG.",
+          "stats": {
+            "damage_bonus_percent": 15,
+            "damage_reduction_percent": 15
+          }
+        },
+        {
+          "name": "Wicked Ward Lv.1",
+          "description": "{Solo}. Whenever an ally plays a Card that applies Curse, allied Axies gain {shield_on_curse} Shield.",
+          "stats": {
+            "shield_on_curse": 12
+          }
+        },
+        {
+          "name": "Plague Bearer Lv.1",
+          "description": "{Solo}. When your turn ends, gain {debuff_counts} counts of {random_debuff} random debuff. When attacked, take -{damage_reduction_per_debuff}% DMG per debuff counter on this Axie (Cap: -{damage_reduction_cap}% DMG) and create a <Plague Wave>.",
+          "stats": {
+            "debuff_counts": 6,
+            "damage_reduction_per_debuff": 2,
+            "damage_reduction_cap": 20
+          }
+        },
+        {
+          "name": "Moonlight Thief Lv.1",
+          "description": "{Solo}. When your turn starts, if you have less <Fragment> or <Burst> Level than the Enemy, <Steal> {steal_fragments} Fragment.\nWhen your turn ends, Heal ({base_heal} + {heal_per_fragment}x your <Fragment>s) as HP.",
+          "stats": {
+            "steal_fragments": 1,
+            "base_heal": 10,
+            "heal_per_fragment": 4
+          }
+        },
+        {
+          "name": "Gloomy Dice Lv.1",
+          "description": "{Solo}. When your turn starts, on Odd <Round>, randomly apply {fear_min} to {fear_max} {Fear} to {target_count} random Enemy Axies. [Confused] deal {confused_min}x to {confused_max}x DMG to enemies.",
+          "stats": {
+            "fear_min": 2,
+            "fear_max": 5,
+            "target_count": 2,
+            "confused_min": 2,
+            "confused_max": 5
+          }
+        },
+        {
+          "name": "Soul Eater Lv.1",
+          "description": "{Solo}. Whenever this Axie targets an enemy Axie with a card that costs >{energy_threshold}, <Dispel>: {dispel_on_target} then <Dispel>: {dispel_on_all} all enemy Axies and they lose ({hp_loss_percent}% of their Current HP).",
+          "stats": {
+            "energy_threshold": 0,
+            "dispel_on_target": 1,
+            "dispel_on_all": 1,
+            "hp_loss_percent": 6
+          }
+        },
+        {
+          "name": "Fading Eclipse Lv.1",
+          "description": "{Solo}. Enemies deal -{base_damage_reduction_percent}% DMG. When each Round ends, until Round {round_limit}, this effect is reduced by {reduction_step_percent}%.",
+          "stats": {
+            "base_damage_reduction_percent": 25,
+            "round_limit": 3,
+            "reduction_step_percent": 5
+          }
+        }
+      ]
+}
