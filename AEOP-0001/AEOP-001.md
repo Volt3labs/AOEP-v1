@@ -177,3 +177,22 @@ This system improves balance legitimacy and player trust at minimal operational 
 │  Winning JSON Becomes      │
 │  Canonical Balance         │
 └────────────────────────────┘
+
+## AOEP-001 Diagram
+
+```mermaid
+flowchart TD
+  A[Allowlisted Proposers] --> B[Submit Proposal<br/>runes.json + charms.json + summary.md]
+  B --> C[Validation Script<br/>schema + placeholders/stats + safety limits + diff]
+  C -->|Valid| D[Vote #1<br/>Axie Score weighted<br/>Select Top 2]
+  C -->|Invalid| X[Fix errors<br/>Resubmit]
+
+  D --> E[Off-Season Trial]
+  E --> E1[Week 1: Proposal A<br/>Season switch -> A JSON]
+  E --> E2[Week 2: Proposal B<br/>Season switch -> B JSON]
+  E1 --> F[Telemetry + Metrics]
+  E2 --> F
+
+  F --> G[Vote #2<br/>Axie Score weighted<br/>A vs B]
+  G --> H[Winner -> Official Season Patch<br/>Publish canonical JSON]
+  H --> I[Rollback possible<br/>Re-point season.json]
