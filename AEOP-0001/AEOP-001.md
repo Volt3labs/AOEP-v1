@@ -119,70 +119,9 @@ This system improves balance legitimacy and player trust at minimal operational 
 
 ## AOEP-001 Diagram
 
-┌────────────────────────────┐
-│   Allowlisted Proposers    │
-│ (Designers / Top Analysts) │
-└───────────────┬────────────┘
-                │
-                │ Submit JSON + Summary
-                ▼
-┌─────────────────────────────┐
-│  Proposal Folder (Git/Drive)│
-│  - runes.json               │
-│  - charms.json              │
-│  - summary.md               │
-└───────────────┬─────────────┘
-                │
-                │ Run Validator Script
-                ▼
-┌────────────────────────────┐
-│   Validation & Diff Check  │
-│  - Schema                  │
-│  - Balance Limits          │
-│  - Change Caps             │
-└───────────────┬────────────┘
-                │ Valid Only
-                ▼
-┌────────────────────────────┐
-│  VOTE #1 (Axie Score)      │
-│  Weighted Snapshot Vote    │
-└───────────────┬────────────┘
-                │ Top 2
-        ┌───────┴────────┐
-        ▼                ▼
-┌──────────────┐  ┌──────────────┐
-│ Proposal A   │  │ Proposal B   │
-│ Off-Season   │  │ Off-Season   │
-│ Week 1 JSON  │  │ Week 2 JSON  │
-└───────┬──────┘  └───────┬──────┘
-        │                 │
-        └───────┬─────────┘
-                ▼
-┌────────────────────────────┐
-│   Off-Season Telemetry     │
-│  - Winrate / Pickrate      │
-│  - Meta Diversity          │
-│  - Exploit Detection       │
-└───────────────┬────────────┘
-                │
-                ▼
-┌────────────────────────────┐
-│  VOTE #2 (Axie Score)      │
-│  Final Choice A vs B       │
-└───────────────┬────────────┘
-                │ Winner
-                ▼
-┌────────────────────────────┐
-│  Official Season Patch     │
-│  Winning JSON Becomes      │
-│  Canonical Balance         │
-└────────────────────────────┘
-
-## AOEP-001 Diagram
-
 ```mermaid
 flowchart TD
-  A[Allowlisted Proposers] --> B[Submit Proposal<br/>runes.json + charms.json + summary.md]
+  A[Allowlisted Proposers<br/>(Top players / Top Analysts)] --> B[Submit Proposal<br/>runes.json + charms.json + summary.md]
   B --> C[Validation Script<br/>schema + placeholders/stats + safety limits + diff]
   C -->|Valid| D[Vote #1<br/>Axie Score weighted<br/>Select Top 2]
   C -->|Invalid| X[Fix errors<br/>Resubmit]
