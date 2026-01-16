@@ -121,7 +121,7 @@ This system improves balance legitimacy and player trust at minimal operational 
 
 ```mermaid
 flowchart TD
-  A[Allowlisted Proposers<br/>(Top players / Top Analysts)] --> B[Submit Proposal<br/>runes.json + charms.json + summary.md]
+  A[Allowlisted Proposers<br/>Top players / Top Analysts] --> B[Submit Proposal<br/>runes.json + charms.json + summary.md]
   B --> C[Validation Script<br/>schema + placeholders/stats + safety limits + diff]
   C -->|Valid| D[Vote #1<br/>Axie Score weighted<br/>Select Top 2]
   C -->|Invalid| X[Fix errors<br/>Resubmit]
