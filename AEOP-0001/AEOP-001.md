@@ -16,103 +16,154 @@
 
 This proposal defines a low-resource, off-season balance governance loop for Axie Infinity in which selected contributors submit validated Rune and Charm JSON proposals. The community selects the top two proposals using Axie Score–weighted voting. Both proposals are deployed sequentially during the off-season as live trials. A second Axie Score–weighted vote selects the final winning proposal, which becomes the canonical balance configuration for the next official season.
 
-## Update #1 — Technical Feasibility & Primary Constraint
+## Update #1 — Technical Feasibility & Primary Constraints
 
-After discussion with Sky Mavis and community members, there is broad conceptual support for the idea of a community-driven balance council and experimental off-season process.
+After discussion with Sky Mavis and community members, there is broad conceptual support for the idea of a community-driven balance council and off-season experimentation process.
 
-However, the main blocking issue identified is **technical risk and testing cost**.
+However, several technical constraints were identified as blockers.
 
-Even small numerical balance changes can introduce:
-- Client-side bugs (UI, state machines, edge cases)
-- Gameplay logic regressions
-- Desynchronization between client and server
-- Exploits caused by unforeseen interaction effects
+### 1. Risk of Major Regressions from Small Balance Changes
 
-Without strong safeguards, each balance iteration would require heavy manual QA and engineering validation, making the process too resource-intensive and therefore unattractive for the core team.
+The primary concern is that even minor numerical adjustments can introduce severe bugs, despite not changing game logic directly. The exact failure modes were not detailed, but may include client instability, state corruption, desynchronization, or unintended interaction chains.
 
-As a result, the first prerequisite for making a low-resource Balance Council viable is:
+> “The reason for no balancing right now is due to the fact that major bugs can appear with balance changes and given the current resources for the game, it might not be feasible to make changes.” — Jaaster
 
-> Making the game client and server pipeline resilient to frequent balance configuration changes through rigorous, automated, multi-layer testing (data validation, simulation, integration, and regression testing).
+Without strong automated safeguards, each balance iteration would require extensive manual QA and engineering validation, making frequent changes too costly.
+
+This implies that the first prerequisite for a low-resource Balance Council is:
+
+> Making the client and server resilient to frequent balance configuration changes through rigorous automated testing (data validation, simulation, integration, and regression).
 
 Only if balance patches can be deployed safely, repeatedly, and cheaply does a community-driven iteration loop become operationally realistic.
 
-A secondary concern raised by both Sky Mavis and community members is the risk of **unfair market advantage** (information asymmetry, early access to balance knowledge), which must be addressed separately in later sections.
+### 2. Balance Data Coupling to Client Build and Multiple Services
+
+A second constraint is architectural: balance data is not currently isolated to a single hot-swappable server configuration.
+
+> “In theory it’s doable. In practice it’s not as simple as just changing config here and there. The client has its own data that needs rebuild / recompile. It also affects other services like marketplace, minting, depositing… so any changes made would require a non-trivial amount of effort.” — Hellscream
+
+This means that a balance update can require:
+- Client rebuilds and redeployments  
+- Coordinated updates across multiple backend services  
+- Multi-team validation and release orchestration  
+
+For the proposed process to be lightweight, balance data must become:
+- Versioned  
+- Centrally defined  
+- Automatically propagated to all dependent systems via tooling (release scripts, shared artifacts, runtime-loaded configs)
+
+Without this decoupling and automation, even a perfect voting and testing process would still result in high operational overhead.
+
+### 3. Information Asymmetry and Market Fairness
+
+A third issue raised by both Sky Mavis and community members is the risk of **unfair market advantage**:
+
+- Early knowledge of upcoming balance changes could be used for:
+  - Axie accumulation  
+  - Rune and charm speculation  
+  - Market manipulation  
+
+This creates asymmetry between insiders and regular players and must be mitigated through strict disclosure timing, snapshot rules, and possibly delayed economic activation. This concern is orthogonal to the technical
+
 
 ---
 
-## Pre-requisite — Automated Balance Safety Pipeline (Simplified Engineering Plan)
+## Pre-requisite — Client Hardening & Automated Balance Safety Pipeline
 
-To allow frequent balance changes without breaking the game or requiring heavy manual testing, balance data (runes and charms) must be treated like code: validated, tested, and automatically rejected if unsafe.
+To make frequent community-driven balance updates feasible without scaling QA and engineering cost, three technical foundations are required:
 
-### 1. Balance Data Validation
+1. **Light Client / Server Hardening**  
+2. **Automated Balance Safety Pipeline**  
+3. **Automated Balance Propagation Across Client & Services**
 
-Before anything runs in-game, every balance file must pass simple automatic checks:
+### 1. Light Client / Server Hardening (Minimal Code Changes)
 
-- Correct format (JSON schema)
-- All required fields exist
-- Numbers are within allowed ranges
-- All IDs referenced actually exist
-- No accidental deletions or duplicated entries
-- Diff vs current balance is generated and reviewed
+Small, targeted engineering work is needed to make the game safely testable and robust to data changes:
 
-This prevents broken or malformed data from ever reaching the client.
+- Ensure runes and charms are fully data-driven (no hidden hardcoded assumptions)
+- Add runtime assertions for:
+  - Invalid stat ranges
+  - Illegal state transitions
+  - Cooldown, energy, and turn-order invariants
+- Expose deterministic battle simulation mode:
+  - Fixed RNG seeds
+  - Headless execution
+  - Full state logging
+- Add test hooks:
+  - Load arbitrary balance JSON at startup
+  - Fast-forward battles
+  - Capture replays for regression testing
 
-### 2. Automatic Battle Simulation
+### 2. Automated Balance Safety Pipeline
 
-Run the game logic without graphics (headless mode) using the new balance data:
+Every balance proposal must pass an automated pipeline before voting or deployment:
 
-- Simulate thousands of battles with random teams and seeds
-- Ensure battles always finish
-- Check that no stat becomes infinite, negative, or NaN
-- Ensure no infinite loops or soft locks occur
-- Verify that core rules (turn order, energy, cooldowns) stay valid
+- **Data validation:** schema, ranges, referential integrity, diff vs canonical
+- **Battle simulation:** thousands of headless matches, no crashes, no infinite loops, no NaNs
+- **Client smoke tests:** launch client, open key screens, start and finish battles
+- **Exploit guards:** detect infinite stacking, zero-cost loops, stat overflows
+- **CI gating & rollback:** hard pass/fail, versioning, one-click revert
 
-This catches most gameplay-breaking bugs early.
+### 3. Automated Balance Propagation Across Client & Services
 
-### 3. Basic Client Smoke Tests
+Balance changes currently affect not only the game server but also the client build and multiple backend services (marketplace, minting, deposits, indexing). To avoid manual, multi-team coordination for each iteration, an automated propagation system is required.
 
-Automatically launch the client with the new balance data and:
+- Establish a **single, versioned source of truth** for balance data (`runes.json`, `charms.json`, `balanceVersion`)
+- Generate per-service derived artifacts from this source:
+  - Client bundle or runtime-loaded asset
+  - Marketplace metadata
+  - Minting and deposit validation tables
+  - Indexing / analytics mappings
+- Implement a **release script** that:
+  1. Validates balance data
+  2. Builds all derived artifacts
+  3. Publishes them with the same version tag
+  4. Triggers reload / cache refresh in all dependent services
+  5. Runs basic smoke tests
+  6. Registers rollback to previous version
 
-- Open main menus
-- Open rune/charm screens
-- Start and finish a few battles
-- Load tooltips and descriptions
+If balance data is currently embedded in the client and requires rebuild/recompile, it must be moved to a runtime-loaded or versioned asset system. This decoupling is necessary so that off-season balance experiments can be deployed without shipping a new client for each iteration.
 
-The goal is only to ensure “nothing obvious breaks,” not to fully QA the game.
 
-### 4. Simple Exploit Detection
+## Mitigation for Market fairness — Information Asymmetry with Anonymous Voting
 
-Add automated checks for obvious abuse patterns:
+To keep the system low-resource while allowing open debate and advocacy, the mitigation can rely on **uncertainty of outcome rather than enforcement**.
 
-- Unlimited stacking
-- Zero-cost or infinite actions
-- Extreme damage or healing spikes
-- Broken cooldown or energy systems
+#### Core Principle: Uncertain Final Outcome
 
-These can be rule-based at first and improved over time.
+- At least **two balance proposals** must always reach the off-season trial.
+- Proposers are free to:
+  - Publicly explain their ideas
+  - Defend their design
+  - Advocate for their proposal
+- However, **all votes are anonymous** and only final tallies are published.
 
-### 5. Continuous Integration (CI) Gate
+This means:
 
-All steps above run automatically whenever a new balance proposal is submitted:
+- No proposer can know with certainty:
+  - Which proposal is leading
+  - Whether their proposal will win Vote #1
+  - Whether it will win Vote #2
+- Even with strong community support, the final outcome remains probabilistic until the vote closes.
 
-1. Data validation  
-2. Battle simulations  
-3. Client smoke tests  
-4. Exploit checks  
+#### Why This Reduces Market Manipulation
 
-If any step fails, the proposal is rejected and cannot:
-- Enter voting
-- Be deployed in the off-season
+- A proposer may believe their balance change is good, but:
+  - Another proposal with opposite economic impact is competing
+  - Anonymous voting prevents reliable prediction of the winner
+- Any attempt to pre-position in the market becomes speculation, not privileged arbitrage.
+- There is no guaranteed “inside information advantage,” only personal belief.
 
-### 6. Versioning and Rollback
+#### Operational Simplicity
 
-- Every balance file has a version number
-- Previous versions are kept
-- Switching back to a safe version is one click
+This approach requires only:
 
-This makes experimentation safe, fast, and reversible.
+- Anonymous voting (no voter identity disclosure, only aggregate results)
+- Minimum of two competing proposals
+- Simultaneous public release of trial data
+- Final balance reveal only after Vote #2
 
-This pipeline turns balance changes into low-risk, low-cost operations and is the technical foundation that makes a community-driven balance council realistically possible.
+No trading locks, no asset audits, no compliance enforcement, and no monitoring infrastructure are required, keeping the process lightweight and scalable.
 
 ---
 
