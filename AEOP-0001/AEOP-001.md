@@ -16,14 +16,107 @@
 
 This proposal defines a low-resource, off-season balance governance loop for Axie Infinity in which selected contributors submit validated Rune and Charm JSON proposals. The community selects the top two proposals using Axie Score–weighted voting. Both proposals are deployed sequentially during the off-season as live trials. A second Axie Score–weighted vote selects the final winning proposal, which becomes the canonical balance configuration for the next official season.
 
-Update#1: 
-After discussion with SM & Community, community seem favorable to the balance council proposal. 
-On the technical side the main issue is major bugs could be introduced even with small changes and that requires a lot of ressources to test. Because of this issue SM doesn't seem favorable.
-One of the issue mentionned by both parties could be unfair market advantage.
+## Update #1 — Technical Feasibility & Primary Constraint
+
+After discussion with Sky Mavis and community members, there is broad conceptual support for the idea of a community-driven balance council and experimental off-season process.
+
+However, the main blocking issue identified is **technical risk and testing cost**.
+
+Even small numerical balance changes can introduce:
+- Client-side bugs (UI, state machines, edge cases)
+- Gameplay logic regressions
+- Desynchronization between client and server
+- Exploits caused by unforeseen interaction effects
+
+Without strong safeguards, each balance iteration would require heavy manual QA and engineering validation, making the process too resource-intensive and therefore unattractive for the core team.
+
+As a result, the first prerequisite for making a low-resource Balance Council viable is:
+
+> Making the game client and server pipeline resilient to frequent balance configuration changes through rigorous, automated, multi-layer testing (data validation, simulation, integration, and regression testing).
+
+Only if balance patches can be deployed safely, repeatedly, and cheaply does a community-driven iteration loop become operationally realistic.
+
+A secondary concern raised by both Sky Mavis and community members is the risk of **unfair market advantage** (information asymmetry, early access to balance knowledge), which must be addressed separately in later sections.
 
 ---
 
-## Rationale
+## Pre-requisite — Automated Balance Safety Pipeline (Simplified Engineering Plan)
+
+To allow frequent balance changes without breaking the game or requiring heavy manual testing, balance data (runes and charms) must be treated like code: validated, tested, and automatically rejected if unsafe.
+
+### 1. Balance Data Validation
+
+Before anything runs in-game, every balance file must pass simple automatic checks:
+
+- Correct format (JSON schema)
+- All required fields exist
+- Numbers are within allowed ranges
+- All IDs referenced actually exist
+- No accidental deletions or duplicated entries
+- Diff vs current balance is generated and reviewed
+
+This prevents broken or malformed data from ever reaching the client.
+
+### 2. Automatic Battle Simulation
+
+Run the game logic without graphics (headless mode) using the new balance data:
+
+- Simulate thousands of battles with random teams and seeds
+- Ensure battles always finish
+- Check that no stat becomes infinite, negative, or NaN
+- Ensure no infinite loops or soft locks occur
+- Verify that core rules (turn order, energy, cooldowns) stay valid
+
+This catches most gameplay-breaking bugs early.
+
+### 3. Basic Client Smoke Tests
+
+Automatically launch the client with the new balance data and:
+
+- Open main menus
+- Open rune/charm screens
+- Start and finish a few battles
+- Load tooltips and descriptions
+
+The goal is only to ensure “nothing obvious breaks,” not to fully QA the game.
+
+### 4. Simple Exploit Detection
+
+Add automated checks for obvious abuse patterns:
+
+- Unlimited stacking
+- Zero-cost or infinite actions
+- Extreme damage or healing spikes
+- Broken cooldown or energy systems
+
+These can be rule-based at first and improved over time.
+
+### 5. Continuous Integration (CI) Gate
+
+All steps above run automatically whenever a new balance proposal is submitted:
+
+1. Data validation  
+2. Battle simulations  
+3. Client smoke tests  
+4. Exploit checks  
+
+If any step fails, the proposal is rejected and cannot:
+- Enter voting
+- Be deployed in the off-season
+
+### 6. Versioning and Rollback
+
+- Every balance file has a version number
+- Previous versions are kept
+- Switching back to a safe version is one click
+
+This makes experimentation safe, fast, and reversible.
+
+This pipeline turns balance changes into low-risk, low-cost operations and is the technical foundation that makes a community-driven balance council realistically possible.
+
+---
+
+## Balance council rationale
 
 Balance decisions in competitive games often lack transparency, experimental rigor, and community legitimacy. This system formalizes balance iteration as a scientific process: hypothesis (proposal), validation, experiment (off-season trial), and conclusion (final vote).
 
