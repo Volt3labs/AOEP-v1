@@ -30,9 +30,7 @@ The primary concern is that even minor numerical adjustments can introduce sever
 
 Without strong automated safeguards, each balance iteration would require extensive manual QA and engineering validation, making frequent changes too costly.
 
-This implies that the first prerequisite for a low-resource Balance Council is:
-
-> Making the client and server resilient to frequent balance configuration changes through rigorous automated testing (data validation, simulation, integration, and regression).
+This implies that the first prerequisite for a low-resource Balance Council is: **Making the client and server resilient to frequent balance configuration changes through rigorous automated testing (data validation, simulation, integration, and regression).**
 
 Only if balance patches can be deployed safely, repeatedly, and cheaply does a community-driven iteration loop become operationally realistic.
 
