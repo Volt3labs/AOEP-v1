@@ -16,6 +16,11 @@
 
 This proposal defines a low-resource, off-season balance governance loop for Axie Infinity in which selected contributors submit validated Rune and Charm JSON proposals. The community selects the top two proposals using Axie Score–weighted voting. Both proposals are deployed sequentially during the off-season as live trials. A second Axie Score–weighted vote selects the final winning proposal, which becomes the canonical balance configuration for the next official season.
 
+Update#1: 
+After discussion with SM & Community, community seem favorable to the balance council proposal. 
+On the technical side the main issue is major bugs could be introduced even with small changes and that requires a lot of ressources to test. Because of this issue SM doesn't seem favorable.
+One of the issue mentionned by both parties could be unfair market advantage.
+
 ---
 
 ## Rationale
